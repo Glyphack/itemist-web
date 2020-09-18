@@ -1,15 +1,9 @@
 import React from 'react'
 
+import Routes from './router/Routes'
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  )
+  return <Routes />
 }
 
 export default App

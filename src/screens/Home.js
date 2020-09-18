@@ -10,6 +10,7 @@ const Page = styled.main`
 
 const Content = styled.section`
   margin: 25vh 2rem 0;
+  max-width: 850px;
 `
 
 const Heading = styled.h1`

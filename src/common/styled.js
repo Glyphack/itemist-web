@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components/macro'
+import styled, { createGlobalStyle } from 'styled-components/macro'
 
 import font from '../assets/fonts/Yekan.ttf'
 
@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
  *::before,
  *::after {
     box-sizing: inherit;
+    transition: 0.2s;
   }
 
   @font-face {
@@ -24,4 +25,15 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #ECEFF1;
     color: #263238;
   }
+`
+
+export const IconButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  color: inherit;
 `

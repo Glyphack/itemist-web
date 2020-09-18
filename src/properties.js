@@ -4,6 +4,10 @@ const properties = {
   header: {
     logo: 'Itemist',
   },
+  menu: {
+    login: 'ورود با استیم',
+    shop: 'فروشگاه',
+  },
   pages: {
     home: {
       heading: (

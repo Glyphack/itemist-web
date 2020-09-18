@@ -2,7 +2,7 @@ import React from 'react'
 
 const properties = {
   header: {
-    logo: 'Itemist',
+    logo: 'آیتمیست',
   },
   menu: {
     login: 'ورود با استیم',

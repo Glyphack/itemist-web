@@ -6,7 +6,7 @@ import { useModal } from '../contexts/modal-context'
 import { IconButton } from '../common/styled'
 
 const Nav = styled.nav`
-  background-color: #cfd8dc;
+  background-color: #c5cae9;
   display: flex;
   justify-content: space-between;
   font-size: calc(2rem + 1vw);
@@ -15,7 +15,6 @@ const Nav = styled.nav`
 
 const Logo = styled.div`
   font-weight: bold;
-  font-family: 'Lobster', cursive;
   padding: 0.5rem;
 `
 

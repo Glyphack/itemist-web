@@ -16,7 +16,8 @@ const Heading = styled.h1`
   font-size: calc(1.6em + 3vw);
 `
 
-const Button = styled.button`
+const Button = styled.div`
+  display: inline-block;
   margin-top: 1rem;
   border: 4px solid #303030;
   color: #303030;

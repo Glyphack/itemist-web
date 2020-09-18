@@ -5,6 +5,7 @@ import Home from '../screens/Home'
 import Shop from '../screens/Shop'
 import Inventory from '../screens/Inventory'
 import NotFound from '../screens/NotFound'
+import MenuModal from '../components/MenuModal'
 
 function Routes() {
   return (
@@ -15,6 +16,7 @@ function Routes() {
         <Route exact path="/inventory" component={Inventory} />
         <Route component={NotFound} />
       </Switch>
+      <MenuModal />
     </Router>
   )
 }

@@ -1,14 +1,19 @@
 import React from 'react'
+import { Normalize } from 'styled-normalize'
+
+import { ModalProvider } from './contexts/modal-context'
+import { GlobalStyles } from './common/styled'
+import Routes from './router/Routes'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
+    <>
+      <Normalize />
+      <GlobalStyles />
+      <ModalProvider>
+        <Routes />
+      </ModalProvider>
+    </>
   )
 }
 

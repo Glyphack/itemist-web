@@ -16,6 +16,7 @@ const Nav = styled.nav`
 const Logo = styled.div`
   font-weight: bold;
   padding: 0.5rem;
+  font-size: calc(1.5rem + 1vw);
 `
 
 function Header({ logo }) {

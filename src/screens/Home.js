@@ -2,15 +2,10 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 import properties from '../properties'
-import Header from '../components/Header'
+import { Page } from '../common/styled'
 
-const Page = styled.main`
-  min-height: 100vh;
-`
-
-const Content = styled.section`
-  margin: 25vh 2rem 0;
-  max-width: 850px;
+const Wrapper = styled(Page)`
+  margin-top: 25vh;
 `
 
 const Heading = styled.h1`
@@ -36,14 +31,10 @@ const Button = styled.div`
 
 function Home() {
   return (
-    <Page>
-      <Header logo={properties.header.logo} />
-
-      <Content>
-        <Heading>{properties.pages.home.heading}</Heading>
-        <Button>{properties.pages.home.callToAction}</Button>
-      </Content>
-    </Page>
+    <Wrapper>
+      <Heading>{properties.pages.home.heading}</Heading>
+      <Button>{properties.pages.home.callToAction}</Button>
+    </Wrapper>
   )
 }
 

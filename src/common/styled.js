@@ -33,3 +33,8 @@ export const IconButton = styled.div`
   padding: 0.5rem;
   cursor: pointer;
 `
+
+export const Page = styled.section`
+  margin: 2rem;
+  max-width: 850px;
+`

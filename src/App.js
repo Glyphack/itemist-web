@@ -3,6 +3,7 @@ import { Normalize } from 'styled-normalize'
 
 import { ModalProvider } from './contexts/modal-context'
 import { GlobalStyles } from './common/styled'
+import Layout from './components/Layout'
 import Routes from './router/Routes'
 
 function App() {
@@ -11,7 +12,9 @@ function App() {
       <Normalize />
       <GlobalStyles />
       <ModalProvider>
-        <Routes />
+        <Layout>
+          <Routes />
+        </Layout>
       </ModalProvider>
     </>
   )

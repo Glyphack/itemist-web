@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { HiX } from 'react-icons/hi'
 
-import properties from '../properties'
+import staticTexts from '../staticTexts'
 import { useModal } from '../contexts/modal-context'
 import { IconButton } from '../common/styled'
 
@@ -57,8 +57,8 @@ function MenuModal() {
         <HiX />
       </CloseButton>
       <Links>
-        <Link to="/">{properties.menu.login}</Link>
-        <Link to="/">{properties.menu.shop}</Link>
+        <Link to="/">{staticTexts.menu.login}</Link>
+        <Link to="/">{staticTexts.menu.shop}</Link>
       </Links>
     </Modal>
   )

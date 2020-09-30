@@ -60,7 +60,7 @@ class InventoryItem extends React.Component {
     Modal.setAppElement('body');
     return (
       <div>Item {this.props.pos} {this.props.info.name}
-        <img src={this.props.info.icon_url_large} alt={this.props.info.name}/>
+        <img src={staticTexts.steamCdnUrl + this.props.info.icon_url} alt={this.props.info.name}/>
         <button onClick={this.handleOpenModal}>{staticTexts.sell}</button>
 
         <Modal

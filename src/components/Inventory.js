@@ -46,14 +46,6 @@ class InventoryItem extends React.Component {
     price: 0
   };
 
-  constructor(props) {
-    super(props);
-
-    this.handleOpenModal = this.handleOpenModal.bind(this)
-    this.handleCloseModal = this.handleCloseModal.bind(this)
-    this.handleSell = this.handleSell.bind(this)
-  }
-
   render() {
     Modal.setAppElement('body');
     return (
@@ -73,15 +65,15 @@ class InventoryItem extends React.Component {
     );
   }
 
-  handleOpenModal() {
+  handleOpenModal = () => {
     this.setState({showModal: true});
   }
 
-  handleCloseModal() {
+  handleCloseModal = () => {
     this.setState({showModal: false});
   }
 
-  async handleSell() {
+  handleSell = async () => {
     if (this.props.price < 1000) {
       return null
     }

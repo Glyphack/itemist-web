@@ -5,14 +5,11 @@ import api from '../api/api'
 import staticTexts from "../staticTexts";
 
 class Inventory extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
-    };
-  }
+  state = {
+    error: null,
+    isLoaded: false,
+    items: []
+  };
 
   render() {
     return (
@@ -44,12 +41,13 @@ class Inventory extends React.Component {
 
 
 class InventoryItem extends React.Component {
+  state = {
+    showModal: false,
+    price: 0
+  };
+
   constructor(props) {
     super(props);
-    this.state = {
-      showModal: false,
-      price: 0
-    };
 
     this.handleOpenModal = this.handleOpenModal.bind(this)
     this.handleCloseModal = this.handleCloseModal.bind(this)

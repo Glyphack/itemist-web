@@ -6,8 +6,6 @@ import staticTexts from "../staticTexts";
 
 class Inventory extends React.Component {
   state = {
-    error: null,
-    isLoaded: false,
     items: []
   };
 
@@ -27,15 +25,10 @@ class Inventory extends React.Component {
     try {
       const response = await api.get('profile/inventory/');
       this.setState({
-        isLoaded: true,
         items: response.data.inventory,
       });
     } catch (error) {
       console.log('error', error);
-      this.setState({
-        isLoaded: true,
-        error,
-      });
     }
   }
 

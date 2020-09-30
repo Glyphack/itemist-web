@@ -19,24 +19,26 @@ class Inventory extends React.Component {
     );
   }
 
-  componentDidMount() {
-    api.get("profile/inventory/")
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.data.inventory
-          });
-        },
-        (error) => {
-          console.log("error", error)
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+  async componentDidMount() {
+    await this.getInventory()
   }
+
+  async getInventory() {
+    try {
+      const response = await API.get('profile/inventory/');
+      this.setState({
+        isLoaded: true,
+        items: response.data.inventory,
+      });
+    } catch (error) {
+      console.log('error', error);
+      this.setState({
+        isLoaded: true,
+        error,
+      });
+    }
+  }
+
 }
 
 

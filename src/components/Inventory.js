@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from 'react-modal';
 
-import API from '../api/api'
+import api from '../api/api'
 import staticTexts from "../staticTexts";
 
 class Inventory extends React.Component {
@@ -23,7 +23,7 @@ class Inventory extends React.Component {
   }
 
   componentDidMount() {
-    API.get("profile/inventory/")
+    api.get("profile/inventory/")
       .then(
         (result) => {
           this.setState({
@@ -88,7 +88,7 @@ class InventoryItem extends React.Component {
       return null
     }
     try {
-      let result = await API.post("sell/", {
+      let result = await api.post("sell/", {
         "appId": this.props.info.appid,
         "contextId": this.props.info.contextid,
         "assetId": this.props.info.assetid,

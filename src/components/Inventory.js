@@ -25,7 +25,7 @@ class Inventory extends React.Component {
 
   async getInventory() {
     try {
-      const response = await API.get('profile/inventory/');
+      const response = await api.get('profile/inventory/');
       this.setState({
         isLoaded: true,
         items: response.data.inventory,

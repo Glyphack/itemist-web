@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-import properties from '../properties'
+import staticTexts from '../staticTexts'
 import { Page } from '../common/styled'
 
 const Wrapper = styled(Page)`
@@ -32,8 +32,8 @@ const Button = styled.div`
 function Home() {
   return (
     <Wrapper>
-      <Heading>{properties.pages.home.heading}</Heading>
-      <Button>{properties.pages.home.callToAction}</Button>
+      <Heading>{staticTexts.pages.home.heading}</Heading>
+      <Button>{staticTexts.pages.home.callToAction}</Button>
     </Wrapper>
   )
 }

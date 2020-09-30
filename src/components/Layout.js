@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import properties from '../properties'
+import staticTexts from '../staticTexts'
 
 import Header from './Header'
 
@@ -11,7 +11,7 @@ const Wrapper = styled.main`
 function Layout({ children }) {
   return (
     <Wrapper>
-      <Header logo={properties.header.logo} />
+      <Header logo={staticTexts.header.logo} />
       {children}
     </Wrapper>
   )

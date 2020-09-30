@@ -1,6 +1,6 @@
 import React from 'react'
 
-const properties = {
+const staticTexts = {
   header: {
     logo: 'آیتمیست',
   },
@@ -20,6 +20,10 @@ const properties = {
       callToAction: 'همین حالا شروع کن',
     },
   },
+  sell: 'فروش',
+  putItUpForSale: 'ثبت برای فروش',
+  tradeOfferSentMessage: 'ترید آفر برای شما ارسال شد',
+  steamCdnUrl: 'https://community.cloudflare.steamstatic.com/economy/image/',
 }
 
-export default properties
+export default staticTexts

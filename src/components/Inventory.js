@@ -19,8 +19,8 @@ class Inventory extends React.Component {
     );
   }
 
-  async componentDidMount() {
-    await this.getInventory()
+  componentDidMount() {
+    this.getInventory().then(_ => null);
   }
 
   async getInventory() {

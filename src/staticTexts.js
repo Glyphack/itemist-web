@@ -24,6 +24,7 @@ const staticTexts = {
   putItUpForSale: 'ثبت برای فروش',
   tradeOfferSentMessage: 'ترید آفر برای شما ارسال شد',
   steamCdnUrl: 'https://community.cloudflare.steamstatic.com/economy/image/',
+  submitNewSellOrder: 'فروش آیتم'
 }
 
 export default staticTexts

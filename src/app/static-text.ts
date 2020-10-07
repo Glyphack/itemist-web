@@ -4,6 +4,8 @@ export const staticText = {
     drawer: {
       login: 'ورود با استیم',
       shop: 'فروشگاه',
+      inventory: 'اینونتوری',
+      logout: 'خروج از استیم'
     },
   },
   home: {

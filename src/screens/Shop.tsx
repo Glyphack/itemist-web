@@ -3,7 +3,7 @@ import { Container, Flex } from '@chakra-ui/core'
 
 import { Search } from '../components/Search'
 import { Filter } from '../components/Filter'
-import { ItemList } from '../components/Item/ItemList'
+import { ShopList } from '../components/Shop/ShopList'
 
 export function Shop() {
   return (
@@ -12,7 +12,7 @@ export function Shop() {
         <Search />
         <Filter />
       </Flex>
-      <ItemList />
+      <ShopList />
     </Container>
   )
 }

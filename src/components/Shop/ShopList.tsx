@@ -1,14 +1,14 @@
 import React from 'react'
 import { VStack } from '@chakra-ui/core'
 
-import { Item } from './Item'
+import { ShopItem } from './ShopItem'
 
-export function ItemList() {
+export function ShopList() {
   return (
     <VStack mt={6} spacing={8}>
-      <Item />
-      <Item />
-      <Item />
+      <ShopItem />
+      <ShopItem />
+      <ShopItem />
     </VStack>
   )
 }

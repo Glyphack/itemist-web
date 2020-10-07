@@ -3,16 +3,16 @@ import { Container, Flex } from '@chakra-ui/core'
 
 import { Search } from '../components/Search'
 import { Filter } from '../components/Filter'
-import { ShopList } from '../components/Shop/ShopList'
+import { InventoryList } from '../components/Inventory/InventoryList'
 
-export function Shop() {
+export function Inventory() {
   return (
     <Container>
       <Flex justifyContent="space-between">
         <Search />
         <Filter />
       </Flex>
-      <ShopList />
+      <InventoryList />
     </Container>
   )
 }

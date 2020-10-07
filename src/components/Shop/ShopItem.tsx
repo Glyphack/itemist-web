@@ -1,12 +1,12 @@
 import React from 'react'
 import { Image, VStack, Flex, Text, Button, Heading } from '@chakra-ui/core'
 
-export function Item() {
+export function ShopItem() {
   return (
     <Flex>
       <Image boxSize="128px" />
 
-      <VStack mr={6} justifyContent="space-between">
+      <VStack mr={6} justifyContent="space-between" minWidth={[0, '3xs']}>
         <Heading as="h3" size="md" fontFamily="arial">
           Lotus Orb
         </Heading>

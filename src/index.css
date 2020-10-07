@@ -4,5 +4,9 @@
 }
 
 * {
+  font-family: IranSans;
+}
+
+h2 {
   font-family: IranSans !important;
 }

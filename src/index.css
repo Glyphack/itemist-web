@@ -1,0 +1,8 @@
+@font-face {
+  font-family: IranSans;
+  src: url('./assets/Iranian\ Sans.ttf');
+}
+
+* {
+  font-family: IranSans !important;
+}

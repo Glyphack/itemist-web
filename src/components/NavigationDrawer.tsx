@@ -7,10 +7,13 @@ import {
   DrawerCloseButton,
   DrawerBody,
   Link,
-  Stack,
+  Avatar,
+  Text,
+  VStack,
 } from '@chakra-ui/core'
 
 import { staticText } from '../app/static-text'
+import { EditableField } from './EditableField/EditableField'
 
 type NavigationDrawerProps = {
   isOpen: boolean
@@ -30,15 +33,33 @@ export function NavigationDrawer({ isOpen, onClose, finalFocusRef }: NavigationD
       <DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerBody d="flex" flexDir="column" justifyContent="center" alignItems="center">
-            <Stack spacing={8} fontSize="3xl" textAlign="center">
+          <DrawerBody>
+            <VStack
+              spacing={6}
+              fontSize="3xl"
+              textAlign="center"
+              justify="center"
+              alignItems="center"
+              mt={12}
+            >
+              <VStack mb={4} fontSize="lg" color="gray.500">
+                <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" size="2xl" />
+                <Text bg="gray.50">Dan Abrahmov</Text>
+                <EditableField />
+              </VStack>
               <Link as={RouteLink} to="/" onClick={onClose}>
                 {staticText.layout.drawer.login}
               </Link>
               <Link as={RouteLink} to="/shop" onClick={onClose}>
                 {staticText.layout.drawer.shop}
               </Link>
-            </Stack>
+              <Link as={RouteLink} to="/inventory" onClick={onClose}>
+                {staticText.layout.drawer.inventory}
+              </Link>
+              <Link as={RouteLink} to="/" onClick={onClose} color="red.500">
+                {staticText.layout.drawer.logout}
+              </Link>
+            </VStack>
           </DrawerBody>
         </DrawerContent>
       </DrawerOverlay>

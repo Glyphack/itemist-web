@@ -1,4 +1,5 @@
 import React, { RefObject } from 'react'
+import { Link as RouteLink } from 'react-router-dom'
 import {
   Drawer,
   DrawerOverlay,
@@ -30,9 +31,13 @@ export function NavigationDrawer({ isOpen, onClose, finalFocusRef }: NavigationD
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerBody d="flex" flexDir="column" justifyContent="center" alignItems="center">
-            <Stack spacing={8} fontSize="3xl">
-              <Link>{staticText.layout.drawer.login}</Link>
-              <Link>{staticText.layout.drawer.shop}</Link>
+            <Stack spacing={8} fontSize="3xl" textAlign="center">
+              <Link as={RouteLink} to="/" onClick={onClose}>
+                {staticText.layout.drawer.login}
+              </Link>
+              <Link as={RouteLink} to="/shop" onClick={onClose}>
+                {staticText.layout.drawer.shop}
+              </Link>
             </Stack>
           </DrawerBody>
         </DrawerContent>

@@ -14,7 +14,7 @@ export function InventoryItem() {
           10x
         </Text>
         <Button colorScheme="green" w="100%">
-          خرید
+          فروش
         </Button>
       </VStack>
     </Flex>

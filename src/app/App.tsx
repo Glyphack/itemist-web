@@ -1,4 +1,5 @@
 import React from 'react'
+import { RecoilRoot } from 'recoil'
 import { ChakraProvider, theme } from '@chakra-ui/core'
 
 import { Routes } from './Routes'
@@ -17,8 +18,10 @@ const customTheme = {
 
 export function App() {
   return (
-    <ChakraProvider theme={customTheme}>
-      <Routes />
-    </ChakraProvider>
+    <RecoilRoot>
+      <ChakraProvider theme={customTheme}>
+        <Routes />
+      </ChakraProvider>
+    </RecoilRoot>
   )
 }

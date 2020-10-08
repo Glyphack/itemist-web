@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+import { Layout } from './Layout'
 import { NotFound } from '../screens/NotFound'
 import { Home } from '../screens/Home'
-import { Layout } from '../components/Layout'
 import { InventoryShop } from '../screens/InventoryShop'
 
 export function Routes() {

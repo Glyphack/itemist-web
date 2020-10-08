@@ -19,6 +19,7 @@
     "react-icons": "^3.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "recoil": "^0.0.13",
     "typescript": "^3.9.5",
     "web-vitals": "^0.2.2"
   },

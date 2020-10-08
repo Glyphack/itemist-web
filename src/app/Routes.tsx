@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { NotFound } from '../screens/NotFound'
 import { Home } from '../screens/Home'
 import { Layout } from '../components/Layout'
-import { Shop } from '../screens/Shop'
-import { Inventory } from '../screens/Inventory'
+import { InventoryShop } from '../screens/InventoryShop'
 
 export function Routes() {
   return (
@@ -13,8 +12,12 @@ export function Routes() {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/shop" component={Shop} />
-          <Route exact path="/inventory" component={Inventory} />
+          <Route exact path="/shop">
+            <InventoryShop variant="shop" />
+          </Route>
+          <Route exact path="/inventory">
+            <InventoryShop variant="inventory" />
+          </Route>
           <Route component={NotFound} />
         </Switch>
       </Layout>

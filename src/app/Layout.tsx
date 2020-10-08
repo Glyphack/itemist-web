@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, useDisclosure } from '@chakra-ui/core'
+import { Box, Container, useDisclosure } from '@chakra-ui/core'
 
 import { Header } from '../components/Header'
 import { NavigationDrawer } from '../components/NavigationDrawer'
@@ -16,7 +16,9 @@ export function Layout({ children }: LayoutProps) {
     <>
       <Box color="gray.900">
         <Header drawerBtnRef={btnRef} onDrawerOpen={onOpen} />
-        {children}
+        <Container minW={['xs', 'xs', 'sm', 'md', 'xl']} my={4}>
+          {children}
+        </Container>
       </Box>
       <NavigationDrawer isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef} />
     </>

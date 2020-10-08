@@ -25,7 +25,7 @@ export function Item({ variant }: ItemProps) {
 
   return (
     <Flex justifyContent="center">
-      <Image boxSize="128px" />
+      <Image boxSize="128px" src="https://bit.ly/dan-abramov" />
 
       <VStack mr={6} justifyContent="space-between" flexGrow={1}>
         <Heading as="h3" size="md" fontFamily="arial">

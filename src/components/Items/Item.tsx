@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, VStack, Flex, Text, Button, Heading, Box } from '@chakra-ui/core'
+import { Image, VStack, Flex, Text, Button, Heading } from '@chakra-ui/core'
 
 export type ItemProps = {
   variant: 'shop' | 'inventory'

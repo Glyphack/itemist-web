@@ -1,59 +1,38 @@
 import React from 'react'
-import { Image, VStack, Flex, Text, Button, Heading } from '@chakra-ui/core'
+import { Image, VStack, Flex, Heading } from '@chakra-ui/core'
+
+import { ShopItem } from './ShopItem'
+import { InventoryItem } from './InventoryItem'
+import { ShoppingCartItem } from './ShoppingCartItem'
 
 export type ItemProps = {
-  variant: 'shop' | 'inventory'
+  variant: 'shop' | 'inventory' | 'shopping-cart'
 }
 
 export function Item({ variant }: ItemProps) {
+  const renderContent = () => {
+    switch (variant) {
+      case 'shop':
+        return <ShopItem />
+      case 'inventory':
+        return <InventoryItem />
+      case 'shopping-cart':
+        return <ShoppingCartItem />
+      default:
+        return null
+    }
+  }
+
   return (
     <Flex justifyContent="center">
-      <Image boxSize="128px" />
+      <Image boxSize="128px" src="https://bit.ly/dan-abramov" />
 
       <VStack mr={6} justifyContent="space-between" flexGrow={1}>
         <Heading as="h3" size="md" fontFamily="arial">
           Lotus Orb
         </Heading>
-
-        {variant === 'shop' ? <ShopItem /> : <InventoryItem />}
+        {renderContent()}
       </VStack>
     </Flex>
-  )
-}
-
-function ShopItem() {
-  return (
-    <>
-      <Flex>
-        <Text color="green.600">
-          <strong>100,000</strong>{' '}
-          <Text as="small" fontSize="xs">
-            تومان
-          </Text>
-        </Text>
-        <Text color="gray.600" mr={2}>
-          <strong>10</strong>{' '}
-          <Text as="small" fontSize="xs">
-            عدد
-          </Text>
-        </Text>
-      </Flex>
-      <Button colorScheme="blue" w="100%">
-        خرید
-      </Button>
-    </>
-  )
-}
-
-function InventoryItem() {
-  return (
-    <>
-      <Text as="strong" color="gray.600" mr={2}>
-        10x
-      </Text>
-      <Button colorScheme="green" w="100%">
-        فروش
-      </Button>
-    </>
   )
 }

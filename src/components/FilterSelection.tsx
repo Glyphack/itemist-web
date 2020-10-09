@@ -4,7 +4,7 @@ import { HiChevronDown } from 'react-icons/hi'
 
 import { staticText } from '../app/static-text'
 
-export function Filter() {
+export function FilterSelection() {
   return (
     <Menu>
       <MenuButton as={Button} leftIcon={<Icon as={HiChevronDown} />} fontWeight="normal" dir="ltr">

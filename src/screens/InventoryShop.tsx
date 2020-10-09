@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex } from '@chakra-ui/core'
 
 import { Search } from '../components/Search'
-import { Filter } from '../components/Filter'
+import { FilterSelection } from '../components/FilterSelection'
 import { ItemList } from '../components/Items/ItemList'
 import { ItemProps } from '../components/Items/Item'
 
@@ -11,7 +11,7 @@ export function InventoryShop({ variant }: ItemProps) {
     <>
       <Flex justifyContent="space-between" mb={8}>
         <Search />
-        <Filter />
+        <FilterSelection />
       </Flex>
       <ItemList variant={variant} />
     </>

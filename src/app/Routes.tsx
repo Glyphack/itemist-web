@@ -15,16 +15,22 @@ export function Routes() {
           <Route exact path="/">
             <Home />
           </Route>
+
           <Route exact path="/shop">
             <InventoryShop variant="shop" />
           </Route>
+
           <Route exact path="/inventory">
             <InventoryShop variant="inventory" />
           </Route>
+
           <Route exact path="/shopping-cart">
             <ShoppingCart />
           </Route>
-          <Route component={NotFound} />
+
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
       </Layout>
     </Router>

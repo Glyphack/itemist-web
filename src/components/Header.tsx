@@ -21,14 +21,16 @@ export function Header({ drawerBtnRef, onDrawerOpen }: HeaderProps) {
         {staticText.layout.logo}
       </Link>
       <Flex alignItems="center">
-        <IconButton
-          aria-label="open shopping cart"
-          variant="ghost"
-          colorScheme="green"
-          icon={<Icon as={HiShoppingCart} boxSize="32px" />}
-          as={RouteLink}
-          to="/shopping-cart"
-        />
+        {user && (
+          <IconButton
+            aria-label="open shopping cart"
+            variant="ghost"
+            colorScheme="green"
+            icon={<Icon as={HiShoppingCart} boxSize="32px" />}
+            as={RouteLink}
+            to="/shopping-cart"
+          />
+        )}
         {user && <Avatar name={user.name} src={user.avatar} size="sm" mx={4} />}
         <IconButton
           aria-label="open navigation drawer"

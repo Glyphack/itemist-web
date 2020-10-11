@@ -17,5 +17,5 @@ declare namespace EndpointTypes {
 export const api = {
   get: (endpoint: EndpointTypes.get) => instance.get(endpoint),
   post: (endpoint: EndpointTypes.post) => instance.post(endpoint),
-  put: (endpoint: EndpointTypes.put) => instance.put(endpoint),
+  put: (endpoint: EndpointTypes.put, tradeUrl: string) => instance.put(endpoint, { tradeUrl }),
 }

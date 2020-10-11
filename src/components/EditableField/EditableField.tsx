@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Editable, EditablePreview, EditableInput } from '@chakra-ui/core'
 
 import { EditableControls, EditableControlsProps } from './EditableControls'
+import { api } from '../../api'
 
-export function EditableField() {
+type EditableFieldProps = {
+  defaultTradeUrl: string
+}
+
+export function EditableField({ defaultTradeUrl }: EditableFieldProps) {
+  const [tradeUrl, setTradeUrl] = useState(defaultTradeUrl)
+
   return (
     <Editable
       textAlign="center"
-      defaultValue="Steam Trade URL"
+      defaultValue={defaultTradeUrl}
       fontSize="2xl"
       isPreviewFocusable={false}
       submitOnBlur={false}
+      onSubmit={() => api.put('/profile', tradeUrl)}
+      value={tradeUrl}
+      onChange={newUrl => setTradeUrl(newUrl)}
     >
       {(props: EditableControlsProps) => (
         <>

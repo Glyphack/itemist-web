@@ -18,8 +18,6 @@ export function Item({ variant }: ItemProps) {
         return <InventoryItem />
       case 'shopping-cart':
         return <ShoppingCartItem />
-      default:
-        return null
     }
   }
 

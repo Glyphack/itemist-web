@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from './Layout'
 import { NotFound } from '../screens/NotFound'
 import { Home } from '../screens/Home'
-import { InventoryShop } from '../screens/InventoryShop'
-import { ShoppingCart } from '../screens/ShoppingCart'
+import { CartInventoryShop } from '../screens/CartInventoryShop'
 
 export function Routes() {
   return (
@@ -17,15 +16,15 @@ export function Routes() {
           </Route>
 
           <Route exact path="/shop">
-            <InventoryShop variant="shop" />
+            <CartInventoryShop variant="shop" />
           </Route>
 
           <Route exact path="/inventory">
-            <InventoryShop variant="inventory" />
+            <CartInventoryShop variant="inventory" />
           </Route>
 
           <Route exact path="/shopping-cart">
-            <ShoppingCart />
+            <CartInventoryShop variant="shopping-cart" />
           </Route>
 
           <Route>

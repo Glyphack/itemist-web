@@ -1,4 +1,5 @@
 import React, { RefObject } from 'react'
+import { useRecoilValue } from 'recoil'
 import { Link as RouteLink } from 'react-router-dom'
 import {
   Drawer,
@@ -14,6 +15,7 @@ import {
 
 import { staticText } from '../app/static-text'
 import { useSteamAuth } from '../hooks/use-steam-auth'
+import { userState } from '../recoil/user-state'
 import { EditableField } from './EditableField/EditableField'
 
 type NavigationDrawerProps = {
@@ -44,11 +46,7 @@ export function NavigationDrawer({ isOpen, onClose, finalFocusRef }: NavigationD
             justify="center"
             alignItems="center"
           >
-            <VStack mb={4} fontSize="lg" color="gray.500">
-              <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" size="2xl" />
-              <Text bg="gray.50">Dan Abrahmov</Text>
-              <EditableField />
-            </VStack>
+            <UserInfo />
 
             <Link as={RouteLink} to="/" onClick={handleLogin}>
               {staticText.layout.drawer.login}
@@ -66,5 +64,18 @@ export function NavigationDrawer({ isOpen, onClose, finalFocusRef }: NavigationD
         </DrawerContent>
       </DrawerOverlay>
     </Drawer>
+  )
+}
+
+function UserInfo() {
+  const user = useRecoilValue(userState)
+  if (!user) return null
+
+  return (
+    <VStack mb={4} fontSize="lg" color="gray.500">
+      <Avatar name={user.name} src={user.avatar} size="2xl" />
+      <Text bg="gray.50">{user.name}</Text>
+      <EditableField defaultTradeUrl={user.tradeUrl || 'Steam Trade URL'} />
+    </VStack>
   )
 }

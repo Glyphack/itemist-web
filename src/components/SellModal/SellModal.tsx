@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   Button,
   Fade,
@@ -13,21 +13,45 @@ import {
   InputGroup,
   Input,
   InputLeftAddon,
+  useToast,
 } from '@chakra-ui/core'
+
+import { Schemas } from '../../api/schemas'
+import { api } from '../../api'
+import { SellToast } from './SellToast'
 
 type SellModalProps = {
   isOpen: boolean
   onClose: () => void
   cancelRef: React.MutableRefObject<never>
+  data: Schemas.InventoryItem
 }
 
-export function SellModal({ isOpen, onClose, cancelRef }: SellModalProps) {
+export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) {
   const [price, setPrice] = useState(1000)
+  const toast = useToast()
+  const toastRef = useRef<string | number | undefined>()
 
   const handlePriceChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
     const newPrice = +value || price
     if (newPrice < 1_000 || newPrice > 10_000_000) return
     setPrice(newPrice)
+  }
+
+  const submitSellOrder = async () => {
+    onClose()
+    const response = await api.post('/sell', {
+      price,
+      appId: data.appid,
+      assetId: data.assetid,
+      contextId: data.contextid!,
+    })
+    const offer = response.data.sellOrder as Schemas.SellOrder
+    toastRef.current = toast({
+      duration: 60000,
+      isClosable: true,
+      render: () => <SellToast offer={offer} toast={toast} toastRef={toastRef} />,
+    })
   }
 
   return (
@@ -50,7 +74,9 @@ export function SellModal({ isOpen, onClose, cancelRef }: SellModalProps) {
                     <Button colorScheme="red" variant="ghost" mr={3} onClick={onClose}>
                       لغو
                     </Button>
-                    <Button colorScheme="green">فروش</Button>
+                    <Button colorScheme="green" onClick={submitSellOrder}>
+                      فروش
+                    </Button>
                   </ModalFooter>
                 </ModalContent>
               )}

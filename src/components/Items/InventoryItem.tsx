@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Text, Button, useDisclosure } from '@chakra-ui/core'
 
-import { SellModal } from '../SellModal'
+import { SellModal } from '../SellModal/SellModal'
 import { Schemas } from '../../api/schemas'
 
 type InventoryItemProps = {

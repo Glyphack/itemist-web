@@ -10,16 +10,19 @@ export type ItemVariant = 'shop' | 'inventory' | 'shopping-cart'
 
 type ItemProps = {
   variant: ItemVariant
-  data: Schemas.InventoryItem
+  data: Schemas.SteamItem | Schemas.Product
+  iconUrl: string
+  nameColor: string
+  name: string
 }
 
-export function Item({ variant, data }: ItemProps) {
+export function Item({ variant, data, nameColor, iconUrl, name }: ItemProps) {
   const renderContent = () => {
     switch (variant) {
       case 'shop':
-        return <ShopItem />
+        return <ShopItem data={data as Schemas.Product} />
       case 'inventory':
-        return <InventoryItem data={data} />
+        return <InventoryItem data={data as Schemas.SteamItem} />
       case 'shopping-cart':
         return <ShoppingCartItem />
     }
@@ -31,11 +34,11 @@ export function Item({ variant, data }: ItemProps) {
         boxSize="128px"
         objectFit="cover"
         borderRadius={2}
-        src={`https://steamcommunity-a.akamaihd.net/economy/image/${data.icon_url}`}
+        src={`https://steamcommunity-a.akamaihd.net/economy/image/${iconUrl}`}
       />
       <VStack mr={6} justifyContent="space-between" flexGrow={1}>
-        <Heading as="h3" size="md" fontFamily="arial" dir="ltr" color={`#${data.name_color}`}>
-          {data.name}
+        <Heading as="h3" size="md" fontFamily="arial" dir="ltr" color={`#${nameColor}`}>
+          {name}
         </Heading>
         {renderContent()}
       </VStack>

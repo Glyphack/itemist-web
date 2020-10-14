@@ -14,15 +14,16 @@ type CartInventoryShopProps = {
 }
 
 export function CartInventoryShop({ variant }: CartInventoryShopProps) {
-  const [items, setItems] = useState<Schemas.InventoryItem[] | null>(null)
+  const [items, setItems] = useState<Schemas.SteamItem[] | Schemas.Product[] | null>(null)
 
   useEffect(() => {
+    setItems(null)
     switch (variant) {
       case 'inventory':
-        api.get('/profile/inventory').then(response => setItems(response.data.inventory))
+        api.get('/profile/inventory').then(response => setItems(response.data))
         break
       case 'shop':
-        api.get('/products').then(response => setItems(response.data.inventory))
+        api.get('/products').then(response => setItems(response.data))
         break
       case 'shopping-cart':
         api.get('/cart').then(response => setItems(response.data.inventory))

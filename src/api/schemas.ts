@@ -1,64 +1,76 @@
 export declare namespace Schemas {
   type User = {
-    id: number
     name: string
+    steamId: string
     avatar: string
+    profileUrl: string
     tradeUrl: string
-    wallet: Wallet
+    wallet: { balance: number }
   }
 
   type SellOrder = {
-    seller?: User
+    seller: User
     price: number
     appId: string
     contextId: string
     assetId: string
-    tradeOffer?: TradeOffer
-  }
-
-  type Wallet = {
-    amount: number
+    tradeOffer: TradeOffer
+    success: boolean
   }
 
   type TradeOffer = {
+    user: User
     offerId: string
-    tradeStatus: string
+    tradeStatus?: 'Not sent' | 'Pending' | 'Successful' | 'Failed'
   }
 
-  type Error = {
-    code: number
-    message: string
+  type Product = {
+    seller: User
+    price: number
+    becomeTradable: Date
+    steamItem: SteamItem
   }
 
-  type InventoryItem = {
-    appid: string
-    contextid?: string
-    assetid: string
-    classid: string
-    instanceid: string
-    amount: string
-    pos: number
-    background_color: string
-    icon_url: string
-    icon_url_large: string
-    descriptions: ItemDescription
+  type SteamItem = {
+    appId: string
+    classId: string
+    instanceId: string
+    assetId: string
+    contextId: string
+    iconUrl: string
+    iconUrlLarge: string
     name: string
-    name_color: string
+    marketHashName: string
+    marketName: string
+    nameColor: string
+    backgroundColor: string
     type: string
-    tags?: ItemTag
+    marketable: string
+    commodity: string
+    marketTradableRestriction: string
+    marketMarketableRestriction: string
+    descriptions: string[]
+    tags: Tag[]
   }
 
-  type ItemDescription = {
-    type: string
-    value: string
-    color?: string
+  type Tag = {
+    name: string
+    category: string
+    color: string
+    categoryName: string
   }
 
-  type ItemTag = {
-    internal_name?: string
-    name?: string
-    category?: string
-    color?: string
-    category_name?: string
+  type Cart = {
+    user: User
+    products?: Product[]
+  }
+
+  type Transaction = {
+    user: User
+    products: Product[]
+    authority: string
+    status: string
+    amount: number
+    refId: string
   }
 }

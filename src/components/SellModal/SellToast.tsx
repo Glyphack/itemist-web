@@ -6,7 +6,7 @@ import { Schemas } from '../../api/schemas'
 type SellToastProps = {
   toast: any
   toastRef: React.MutableRefObject<string | number | undefined>
-  offer: Schemas.SellOrder
+  offer: Schemas.TradeOffer
 }
 
 export function SellToast({ toast, toastRef, offer }: SellToastProps) {
@@ -18,7 +18,7 @@ export function SellToast({ toast, toastRef, offer }: SellToastProps) {
           آفر با موفقیت ارسال شد
         </Text>
       </Flex>
-      <Text>لطفا ترید آفر ارسال شده با آی دی: {offer.tradeOffer?.offerId} را قبول کنید.</Text>
+      <Text>لطفا ترید آفر ارسال شده با آی دی: {offer.offerId} را قبول کنید.</Text>
     </Box>
   )
 }

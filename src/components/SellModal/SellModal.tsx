@@ -24,7 +24,7 @@ type SellModalProps = {
   isOpen: boolean
   onClose: () => void
   cancelRef: React.MutableRefObject<never>
-  data: Schemas.InventoryItem
+  data: Schemas.SteamItem
 }
 
 export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) {
@@ -42,11 +42,11 @@ export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) 
     onClose()
     const response = await api.post('/sell', {
       price,
-      appId: data.appid,
-      assetId: data.assetid,
-      contextId: data.contextid!,
+      appId: data.appId,
+      assetId: data.assetId,
+      contextId: data.contextId,
     })
-    const offer = response.data.sellOrder as Schemas.SellOrder
+    const offer = response.data.sellOrder as Schemas.TradeOffer
     toastRef.current = toast({
       duration: 60000,
       isClosable: true,

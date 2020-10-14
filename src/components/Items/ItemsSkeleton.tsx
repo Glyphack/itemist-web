@@ -8,32 +8,34 @@ type ItemsSkeleton = {
   variant: ItemVariant
 }
 
-const fakeData: Schemas.InventoryItem = {
-  appid: 'string',
-  contextid: 'string',
-  assetid: 'string',
-  classid: 'string',
-  instanceid: 'string',
-  amount: 'string',
-  pos: 123,
-  background_color: 'string',
-  icon_url: 'string',
-  icon_url_large: 'string',
-  descriptions: {
-    type: 'string',
-    value: 'string',
-    color: 'string',
-  },
+const fakeData: Schemas.SteamItem = {
+  commodity: 'string',
+  marketHashName: 'string',
+
+  appId: 'string',
+  classId: 'string',
+  instanceId: 'string',
+  assetId: 'string',
+  contextId: 'string',
+  iconUrl: 'string',
+  iconUrlLarge: 'string',
   name: 'string',
-  name_color: 'string',
+  nameColor: 'string',
+  backgroundColor: 'string',
   type: 'string',
-  tags: {
-    internal_name: 'string',
-    name: 'string',
-    category: 'string',
-    color: 'string',
-    category_name: 'string',
-  },
+  descriptions: ['string'],
+  tags: [
+    {
+      name: 'string',
+      category: 'string',
+      color: 'string',
+      categoryName: 'string',
+    },
+  ],
+  marketMarketableRestriction: 'string',
+  marketName: 'string',
+  marketTradableRestriction: 'string',
+  marketable: 'string',
 }
 
 export function ItemsSkeleton({ variant }: ItemsSkeleton) {
@@ -41,7 +43,13 @@ export function ItemsSkeleton({ variant }: ItemsSkeleton) {
     <SimpleGrid mt={6} spacing={10} minChildWidth="288px">
       {[...new Array(20)].map((_, i) => (
         <Skeleton key={i}>
-          <Item variant={variant} data={fakeData} />
+          <Item
+            iconUrl={fakeData.iconUrl}
+            name={fakeData.name}
+            nameColor={fakeData.nameColor}
+            variant={variant}
+            data={fakeData}
+          />
         </Skeleton>
       ))}
     </SimpleGrid>

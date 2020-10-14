@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
-import { Text, Button, useDisclosure } from '@chakra-ui/core'
+import { Button, useDisclosure } from '@chakra-ui/core'
 
 import { SellModal } from '../SellModal/SellModal'
 import { Schemas } from '../../api/schemas'
 
 type InventoryItemProps = {
-  data: Schemas.InventoryItem
+  data: Schemas.SteamItem
 }
 
 export function InventoryItem({ data }: InventoryItemProps) {
@@ -14,9 +14,9 @@ export function InventoryItem({ data }: InventoryItemProps) {
 
   return (
     <>
-      <Text as="strong" color="gray.600" mr={2}>
+      {/* <Text as="strong" color="gray.600" mr={2}>
         {data.amount}
-      </Text>
+      </Text> */}
       <Button colorScheme="green" w="100%" ref={cancelRef} onClick={onOpen}>
         فروش
       </Button>

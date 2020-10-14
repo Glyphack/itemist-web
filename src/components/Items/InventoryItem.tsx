@@ -1,25 +1,26 @@
 import React, { useRef } from 'react'
 import { Text, Button, useDisclosure } from '@chakra-ui/core'
 
-import { SellModal } from '../SellModal'
+import { SellModal } from '../SellModal/SellModal'
+import { Schemas } from '../../api/schemas'
 
 type InventoryItemProps = {
-  amount: string
+  data: Schemas.InventoryItem
 }
 
-export function InventoryItem({ amount }: InventoryItemProps) {
+export function InventoryItem({ data }: InventoryItemProps) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cancelRef = useRef(null!)
 
   return (
     <>
       <Text as="strong" color="gray.600" mr={2}>
-        {amount}
+        {data.amount}
       </Text>
       <Button colorScheme="green" w="100%" ref={cancelRef} onClick={onOpen}>
         فروش
       </Button>
-      <SellModal isOpen={isOpen} onClose={onClose} cancelRef={cancelRef} />
+      <SellModal data={data} isOpen={isOpen} onClose={onClose} cancelRef={cancelRef} />
     </>
   )
 }

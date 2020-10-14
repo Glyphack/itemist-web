@@ -8,12 +8,12 @@ export declare namespace Schemas {
   }
 
   type SellOrder = {
-    seller: User
+    seller?: User
     price: number
     appId: string
     contextId: string
     assetId: string
-    tradeStatus?: TradeOffer
+    tradeOffer?: TradeOffer
   }
 
   type Wallet = {
@@ -32,7 +32,7 @@ export declare namespace Schemas {
 
   type InventoryItem = {
     appid: string
-    cotextid?: string
+    contextid?: string
     assetid: string
     classid: string
     instanceid: string

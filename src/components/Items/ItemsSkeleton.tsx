@@ -10,7 +10,7 @@ type ItemsSkeleton = {
 
 const fakeData: Schemas.InventoryItem = {
   appid: 'string',
-  cotextid: 'string',
+  contextid: 'string',
   assetid: 'string',
   classid: 'string',
   instanceid: 'string',

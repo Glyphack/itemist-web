@@ -3,10 +3,17 @@ import Cookies from 'js-cookie'
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
-  headers: {
-    Authorization: `Bearer ${Cookies.get('access_token')}`,
-  },
 })
+
+instance.interceptors.request.use(
+  config => {
+    config.headers.Authorization = `Bearer ${Cookies.get('access_token')}`
+    return config
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
 
 declare namespace EndpointTypes {
   type get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout'

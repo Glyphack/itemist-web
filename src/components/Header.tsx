@@ -2,10 +2,11 @@ import React, { RefObject } from 'react'
 import { useRecoilValue } from 'recoil'
 import { Link as RouteLink } from 'react-router-dom'
 import { Flex, IconButton, Avatar, Link, Icon } from '@chakra-ui/core'
-import { HiMenu, HiShoppingCart } from 'react-icons/hi'
+import { HiMenu } from 'react-icons/hi'
 
 import { staticText } from '../app/static-text'
 import { userState } from '../recoil/user-state'
+import { CartIcon } from './CartIcon'
 
 type HeaderProps = {
   drawerBtnRef: RefObject<HTMLButtonElement>
@@ -26,7 +27,7 @@ export function Header({ drawerBtnRef, onDrawerOpen }: HeaderProps) {
             aria-label="open shopping cart"
             variant="ghost"
             colorScheme="green"
-            icon={<Icon as={HiShoppingCart} boxSize="32px" />}
+            icon={<CartIcon />}
             as={RouteLink}
             to="/shopping-cart"
           />

@@ -36,6 +36,7 @@ export function Header({ drawerBtnRef, onDrawerOpen }: HeaderProps) {
           aria-label="open navigation drawer"
           ref={drawerBtnRef}
           onClick={onDrawerOpen}
+          colorScheme="blue"
           variant="ghost"
           icon={<Icon as={HiMenu} boxSize="32px" />}
         />

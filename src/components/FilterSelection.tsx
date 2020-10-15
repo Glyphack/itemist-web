@@ -6,11 +6,17 @@ import { staticText } from '../app/static-text'
 
 export function FilterSelection() {
   return (
-    <Menu>
-      <MenuButton as={Button} leftIcon={<Icon as={HiChevronDown} />} fontWeight="normal" dir="ltr">
+    <Menu placement="bottom-end">
+      <MenuButton
+        colorScheme="blue"
+        as={Button}
+        leftIcon={<Icon as={HiChevronDown} />}
+        fontWeight="normal"
+        dir="ltr"
+      >
         {staticText.shop.filter.button}
       </MenuButton>
-      <MenuList>
+      <MenuList color="gray.900">
         <MenuItem>{staticText.shop.filter.nameAsc}</MenuItem>
         <MenuItem>{staticText.shop.filter.nameDesc}</MenuItem>
         <MenuItem>{staticText.shop.filter.priceAsc}</MenuItem>

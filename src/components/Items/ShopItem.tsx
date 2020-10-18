@@ -17,7 +17,7 @@ export function ShopItem({ data }: ShopItemProps) {
   const handleClick = () => {
     setIsDisabled(true)
     setCartState(({ count }) => ({ count: count + 1 }))
-    api.post('/cart', { productId: data._id })
+    api.post('/cart/add-product', { productId: data._id })
   }
 
   return (

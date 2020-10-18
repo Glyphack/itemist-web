@@ -18,7 +18,7 @@ export function EditableField({ defaultTradeUrl }: EditableFieldProps) {
       fontSize="2xl"
       isPreviewFocusable={false}
       submitOnBlur={false}
-      onSubmit={() => api.put('/profile', tradeUrl)}
+      onSubmit={() => api.put('/profile', { tradeUrl })}
       value={tradeUrl}
       onChange={newUrl => setTradeUrl(newUrl)}
     >

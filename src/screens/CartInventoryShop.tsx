@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useRecoilValue } from 'recoil'
 import { Flex } from '@chakra-ui/core'
 
 import { Search } from '../components/Search'
+import { refetchState } from '../recoil/refetch-state'
 import { FilterSelection } from '../components/FilterSelection'
 import { ItemList } from '../components/Items/ItemList'
 import { ItemVariant } from '../components/Items/Item'
@@ -15,6 +17,7 @@ type CartInventoryShopProps = {
 
 export function CartInventoryShop({ variant }: CartInventoryShopProps) {
   const [items, setItems] = useState<Schemas.SteamItem[] | Schemas.Product[] | null>(null)
+  const refetch = useRecoilValue(refetchState)
 
   useEffect(() => {
     setItems(null)
@@ -26,9 +29,9 @@ export function CartInventoryShop({ variant }: CartInventoryShopProps) {
         api.get('/products').then(response => setItems(response.data))
         break
       case 'shopping-cart':
-        api.get('/cart').then(response => setItems(response.data.inventory))
+        api.get('/cart').then(response => setItems(response.data.products))
     }
-  }, [variant])
+  }, [variant, refetch])
 
   if (!items) {
     return (

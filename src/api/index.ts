@@ -16,19 +16,30 @@ instance.interceptors.request.use(
 )
 
 declare namespace EndpointTypes {
-  type get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout'
-  type post = '/sell' | '/cart'
-  type put = '/profile'
+  type Get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout'
+  type Post = '/sell' | '/cart/add-product' | '/cart/remove-product'
+  type Put = '/profile'
 }
 
-declare namespace Requests {
-  type sellPostData = { appId: string; contextId: string; assetId: string; price: number }
-  type cartPostData = { productId: string }
+declare namespace RequestData {
+  namespace Post {
+    type Sell = { appId: string; contextId: string; assetId: string; price: number }
+    type CartAddProduct = { productId: string }
+    type CartRemoveProduct = { productId: string }
+  }
+  namespace Put {
+    type Profile = { tradeUrl: string }
+  }
 }
 
 export const api = {
-  get: (endpoint: EndpointTypes.get) => instance.get(endpoint),
-  post: (endpoint: EndpointTypes.post, sellOrder: Requests.cartPostData | Requests.sellPostData) =>
-    instance.post(endpoint, sellOrder),
-  put: (endpoint: EndpointTypes.put, tradeUrl: string) => instance.put(endpoint, { tradeUrl }),
+  get: (endpoint: EndpointTypes.Get) => instance.get(endpoint),
+  post: (
+    endpoint: EndpointTypes.Post,
+    data:
+      | RequestData.Post.Sell
+      | RequestData.Post.CartAddProduct
+      | RequestData.Post.CartRemoveProduct
+  ) => instance.post(endpoint, data),
+  put: (endpoint: EndpointTypes.Put, data: RequestData.Put.Profile) => instance.put(endpoint, data),
 }

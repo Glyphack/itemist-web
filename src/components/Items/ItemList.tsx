@@ -18,7 +18,7 @@ export function ItemList({ items, variant }: ItemListProps) {
             <Item
               key={item.steamItem.appId + item.steamItem.contextId + item.steamItem.assetId}
               variant={variant}
-              data={item.steamItem}
+              data={item}
               iconUrl={item.steamItem.iconUrl}
               name={item.steamItem.name}
               nameColor={item.steamItem.nameColor}

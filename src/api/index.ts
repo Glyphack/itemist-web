@@ -3,22 +3,43 @@ import Cookies from 'js-cookie'
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
-  headers: {
-    Authorization: `Bearer ${Cookies.get('access_token')}`,
-  },
 })
 
+instance.interceptors.request.use(
+  config => {
+    config.headers.Authorization = `Bearer ${Cookies.get('access_token')}`
+    return config
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
+
 declare namespace EndpointTypes {
-  type get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout'
-  type post = '/sell'
-  type put = '/profile'
+  type Get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout'
+  type Post = '/sell' | '/cart/add-product' | '/cart/remove-product'
+  type Put = '/profile'
+}
+
+declare namespace RequestData {
+  namespace Post {
+    type Sell = { appId: string; contextId: string; assetId: string; price: number }
+    type CartAddProduct = { productId: string }
+    type CartRemoveProduct = { productId: string }
+  }
+  namespace Put {
+    type Profile = { tradeUrl: string }
+  }
 }
 
 export const api = {
-  get: (endpoint: EndpointTypes.get) => instance.get(endpoint),
+  get: (endpoint: EndpointTypes.Get) => instance.get(endpoint),
   post: (
-    endpoint: EndpointTypes.post,
-    sellOrder: { appId: string; contextId: string; assetId: string; price: number }
-  ) => instance.post(endpoint, sellOrder),
-  put: (endpoint: EndpointTypes.put, tradeUrl: string) => instance.put(endpoint, { tradeUrl }),
+    endpoint: EndpointTypes.Post,
+    data:
+      | RequestData.Post.Sell
+      | RequestData.Post.CartAddProduct
+      | RequestData.Post.CartRemoveProduct
+  ) => instance.post(endpoint, data),
+  put: (endpoint: EndpointTypes.Put, data: RequestData.Put.Profile) => instance.put(endpoint, data),
 }

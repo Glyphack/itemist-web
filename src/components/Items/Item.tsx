@@ -3,7 +3,7 @@ import { Image, VStack, Flex, Heading } from '@chakra-ui/core'
 
 import { ShopItem } from './ShopItem'
 import { InventoryItem } from './InventoryItem'
-import { ShoppingCartItem } from './ShoppingCartItem'
+import { CartItem } from './CartItem'
 import { Schemas } from '../../api/schemas'
 
 export type ItemVariant = 'shop' | 'inventory' | 'shopping-cart'
@@ -24,7 +24,7 @@ export function Item({ variant, data, nameColor, iconUrl, name }: ItemProps) {
       case 'inventory':
         return <InventoryItem data={data as Schemas.SteamItem} />
       case 'shopping-cart':
-        return <ShoppingCartItem />
+        return <CartItem data={data as Schemas.Product} />
     }
   }
 

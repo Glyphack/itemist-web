@@ -1,5 +1,5 @@
 import React, { RefObject } from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { Link as RouteLink } from 'react-router-dom'
 import {
   Drawer,
@@ -12,6 +12,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/core'
+import Cookies from 'js-cookie'
 
 import { staticText } from '../app/static-text'
 import { useSteamAuth } from '../hooks/use-steam-auth'
@@ -26,8 +27,14 @@ type NavigationDrawerProps = {
 }
 
 export function NavigationDrawer({ isOpen, onClose, finalFocusRef }: NavigationDrawerProps) {
-  const user = useRecoilValue(userState)
+  const [user, setUser] = useRecoilState(userState)
   const handleLogin = useSteamAuth()
+
+  const handleLogout = () => {
+    onClose()
+    Cookies.remove('access_token')
+    setUser(null)
+  }
 
   return (
     <Drawer
@@ -60,12 +67,14 @@ export function NavigationDrawer({ isOpen, onClose, finalFocusRef }: NavigationD
               {staticText.layout.drawer.shop}
             </Link>
 
-            <Link as={RouteLink} to="/inventory" onClick={onClose}>
-              {staticText.layout.drawer.inventory}
-            </Link>
+            {user && (
+              <Link as={RouteLink} to="/inventory" onClick={onClose}>
+                {staticText.layout.drawer.inventory}
+              </Link>
+            )}
 
             {user && (
-              <Link as={RouteLink} to="/" onClick={onClose} color="red.500">
+              <Link as={RouteLink} to="/" onClick={handleLogout} color="red.500">
                 {staticText.layout.drawer.logout}
               </Link>
             )}

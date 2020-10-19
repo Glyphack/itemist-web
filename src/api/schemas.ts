@@ -25,6 +25,7 @@ export declare namespace Schemas {
   }
 
   type Product = {
+    _id: string
     seller: User
     price: number
     becomeTradable: Date

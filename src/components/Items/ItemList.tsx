@@ -14,7 +14,7 @@ export function ItemList({ items, variant }: ItemListProps) {
   if (!items) return <ItemsSkeleton variant={variant} />
 
   return (
-    <SimpleGrid spacing={8} minChildWidth="288px">
+    <SimpleGrid spacing={10} minChildWidth="288px">
       {items.map(item => {
         if ('price' in item) {
           return (

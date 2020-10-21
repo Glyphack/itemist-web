@@ -40,7 +40,7 @@ const fakeData: Schemas.SteamItem = {
 
 export function ItemsSkeleton({ variant }: ItemsSkeleton) {
   return (
-    <SimpleGrid mt={6} spacing={10} minChildWidth="288px">
+    <SimpleGrid spacing={10} minChildWidth="288px">
       {[...new Array(18)].map((_, i) => (
         <Skeleton key={i}>
           <Item

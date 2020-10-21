@@ -7,6 +7,7 @@ import { Home } from '../screens/Home'
 import { Inventory } from '../screens/Inventory'
 import { Shop } from '../screens/Shop'
 import { ShoppingCart } from '../screens/ShoppingCart'
+import { VerifyPayment } from '../screens/VerifyPayment'
 
 export function Routes() {
   return (
@@ -17,6 +18,7 @@ export function Routes() {
           <Route exact path="/inventory" component={Inventory} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shopping-cart" component={ShoppingCart} />
+          <Route path="/verify-payment" component={VerifyPayment} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

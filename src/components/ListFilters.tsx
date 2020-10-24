@@ -6,7 +6,7 @@ import { FilterSelection } from './FilterSelection'
 
 export function ListFilters() {
   return (
-    <Flex justifyContent="space-between" mb={8}>
+    <Flex justifyContent="space-between">
       <Search />
       <FilterSelection />
     </Flex>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { api } from '../api'
-import { Schemas } from '../api/schemas'
-import { ItemList } from '../components/Items/ItemList'
+import { VStack } from '@chakra-ui/core'
 
+import { Schemas } from '../api/schemas'
+import { api } from '../api'
 import { ListFilters } from '../components/ListFilters'
+import { ItemList } from '../components/Items/ItemList'
 
 export function Inventory() {
   const [items, setItems] = useState<Schemas.SteamItem[] | null>(null)
@@ -14,9 +15,9 @@ export function Inventory() {
   }, [])
 
   return (
-    <>
+    <VStack spacing={8} align="stretch">
       <ListFilters />
       <ItemList variant="inventory" items={items} />
-    </>
+    </VStack>
   )
 }

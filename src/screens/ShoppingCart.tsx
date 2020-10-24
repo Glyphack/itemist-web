@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
-import { api } from '../api'
-import { Schemas } from '../api/schemas'
-import { ItemList } from '../components/Items/ItemList'
+import { Button, VStack } from '@chakra-ui/core'
+import { HiCurrencyDollar } from 'react-icons/hi'
 
+import { Schemas } from '../api/schemas'
+import { api } from '../api'
+import { ItemList } from '../components/Items/ItemList'
 import { ListFilters } from '../components/ListFilters'
 import { refetchState } from '../recoil/refetch-state'
 
@@ -16,10 +18,24 @@ export function ShoppingCart() {
     api.get('/cart').then(response => setItems(response.data.products))
   }, [refetch])
 
+  const handleConfirmPayment = async () => {
+    const response = await api.get('/cart/checkout')
+    window.location.replace(response.data.paymentUrl)
+  }
+
   return (
-    <>
+    <VStack spacing={8} align="stretch">
       <ListFilters />
       <ItemList variant="shopping-cart" items={items} />
-    </>
+      <Button
+        colorScheme="blue"
+        leftIcon={<HiCurrencyDollar size={24} />}
+        dir="ltr"
+        alignSelf="center"
+        onClick={handleConfirmPayment}
+      >
+        پرداخت نهایی
+      </Button>
+    </VStack>
   )
 }

@@ -8,7 +8,7 @@ export function FilterSelection() {
   return (
     <Menu placement="bottom-end">
       <MenuButton
-        colorScheme="blue"
+        colorScheme="purple"
         as={Button}
         leftIcon={<Icon as={HiChevronDown} />}
         fontWeight="normal"

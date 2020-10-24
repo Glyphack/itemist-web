@@ -4,32 +4,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from './Layout'
 import { NotFound } from '../screens/NotFound'
 import { Home } from '../screens/Home'
-import { CartInventoryShop } from '../screens/CartInventoryShop'
+import { Inventory } from '../screens/Inventory'
+import { Shop } from '../screens/Shop'
+import { ShoppingCart } from '../screens/ShoppingCart'
 
 export function Routes() {
   return (
     <Router>
       <Layout>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-
-          <Route exact path="/shop">
-            <CartInventoryShop variant="shop" />
-          </Route>
-
-          <Route exact path="/inventory">
-            <CartInventoryShop variant="inventory" />
-          </Route>
-
-          <Route exact path="/shopping-cart">
-            <CartInventoryShop variant="shopping-cart" />
-          </Route>
-
-          <Route>
-            <NotFound />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/inventory" component={Inventory} />
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/shopping-cart" component={ShoppingCart} />
+          <Route component={NotFound} />
         </Switch>
       </Layout>
     </Router>

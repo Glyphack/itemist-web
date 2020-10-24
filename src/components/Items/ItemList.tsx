@@ -3,13 +3,16 @@ import { SimpleGrid } from '@chakra-ui/core'
 
 import { Item, ItemVariant } from './Item'
 import { Schemas } from '../../api/schemas'
+import { ItemsSkeleton } from './ItemsSkeleton'
 
 type ItemListProps = {
-  items: (Schemas.Product | Schemas.SteamItem)[]
+  items: (Schemas.Product | Schemas.SteamItem)[] | null
   variant: ItemVariant
 }
 
 export function ItemList({ items, variant }: ItemListProps) {
+  if (!items) return <ItemsSkeleton variant={variant} />
+
   return (
     <SimpleGrid mt={6} spacing={10} minChildWidth="288px">
       {items.map(item => {

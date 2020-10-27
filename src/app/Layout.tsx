@@ -2,11 +2,13 @@ import React, { useEffect } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { Box, Container } from '@chakra-ui/core'
 
-import { Header } from '../components/Header'
-import { userState } from '../recoil/user-state'
-import { NavigationDrawer } from '../components/NavigationDrawer'
 import { api } from '../api'
+import { userState } from '../recoil/user-state'
 import { drawerState } from '../recoil/drawer-state'
+import { loadingState } from '../recoil/loading-state'
+import { NavigationDrawer } from '../components/NavigationDrawer'
+import { Header } from '../components/Header'
+import { Loading } from '../components/Loading'
 
 type LayoutProps = {
   children: JSX.Element
@@ -14,12 +16,17 @@ type LayoutProps = {
 
 export function Layout({ children }: LayoutProps) {
   const setUser = useSetRecoilState(userState)
+  const setLoading = useSetRecoilState(loadingState)
   const [drawer, setDrawerState] = useRecoilState(drawerState)
   const btnRef = React.useRef<HTMLButtonElement>(null!)
 
   useEffect(() => {
-    api.get('/profile').then(response => setUser(response.data))
-  }, [setUser])
+    setLoading({ isLoading: true })
+    api
+      .get('/profile')
+      .then(response => setUser(response.data))
+      .finally(() => setLoading({ isLoading: false }))
+  }, [setUser, setLoading])
 
   return (
     <>
@@ -34,6 +41,7 @@ export function Layout({ children }: LayoutProps) {
         onClose={() => setDrawerState({ isOpen: false })}
         finalFocusRef={btnRef}
       />
+      <Loading />
     </>
   )
 }

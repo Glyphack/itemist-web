@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useSetRecoilState } from 'recoil'
 import {
   Button,
   Fade,
@@ -18,6 +19,7 @@ import {
 
 import { Schemas } from '../../api/schemas'
 import { api } from '../../api'
+import { loadingState } from '../../recoil/loading-state'
 import { SellToast } from './SellToast'
 
 type SellModalProps = {
@@ -31,6 +33,7 @@ export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) 
   const [price, setPrice] = useState(1000)
   const toast = useToast()
   const toastRef = useRef<string | number | undefined>()
+  const setLoading = useSetRecoilState(loadingState)
 
   const handlePriceChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
     const newPrice = +value || price
@@ -39,19 +42,25 @@ export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) 
   }
 
   const submitSellOrder = async () => {
-    onClose()
-    const response = await api.post('/sell', {
-      price,
-      appId: data.appId,
-      assetId: data.assetId,
-      contextId: data.contextId,
-    })
-    const offer = response.data.sellOrder as Schemas.TradeOffer
-    toastRef.current = toast({
-      duration: 60000,
-      isClosable: true,
-      render: () => <SellToast offer={offer} toast={toast} toastRef={toastRef} />,
-    })
+    try {
+      onClose()
+      setLoading({ isLoading: true })
+      const response = await api.post('/sell', {
+        price,
+        appId: data.appId,
+        assetId: data.assetId,
+        contextId: data.contextId,
+      })
+      const offer = response.data.sellOrder as Schemas.TradeOffer
+      toastRef.current = toast({
+        duration: 60000,
+        isClosable: true,
+        render: () => <SellToast offer={offer} toast={toast} toastRef={toastRef} />,
+      })
+    } catch {
+    } finally {
+      setLoading({ isLoading: false })
+    }
   }
 
   return (

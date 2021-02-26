@@ -11,7 +11,7 @@ import {
   Avatar,
   Text,
   VStack,
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 import Cookies from 'js-cookie'
 
 import { staticText } from '../app/static-text'

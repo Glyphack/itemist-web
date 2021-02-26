@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Button, useDisclosure } from '@chakra-ui/core'
+import { Button, useDisclosure } from '@chakra-ui/react'
 
 import { SellModal } from '../SellModal/SellModal'
 import { Schemas } from '../../api/schemas'

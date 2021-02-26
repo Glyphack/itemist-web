@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, CSSProperties } from 'react'
 import { useSetRecoilState } from 'recoil'
 import {
   Button,
@@ -15,7 +15,8 @@ import {
   Input,
   InputLeftAddon,
   useToast,
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
+import { MotionStyle } from 'framer-motion'
 
 import { Schemas } from '../../api/schemas'
 import { api } from '../../api'
@@ -64,12 +65,12 @@ export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) 
   }
 
   return (
-    <Fade timeout={300} in={isOpen}>
-      {styles => (
+    <Fade in={isOpen}>
+      {(styles: MotionStyle) => (
         <Modal finalFocusRef={cancelRef} onClose={onClose} isOpen={true} isCentered>
           <ModalOverlay style={styles}>
-            <SlideFade timeout={150} in={isOpen} unmountOnExit={false}>
-              {styles => (
+            <SlideFade in={isOpen} unmountOnExit={false}>
+              {(styles: CSSProperties) => (
                 <ModalContent style={styles} dir="ltr">
                   <ModalHeader fontFamily="arial">Lotus Orb</ModalHeader>
                   <ModalCloseButton />

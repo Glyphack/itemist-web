@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputGroup, InputLeftElement, Input, Icon } from '@chakra-ui/core'
+import { InputGroup, InputLeftElement, Input, Icon } from '@chakra-ui/react'
 import { HiSearch } from 'react-icons/hi'
 
 import { staticText } from '../app/static-text'

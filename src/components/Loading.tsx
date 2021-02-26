@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
-import { Center, CircularProgress } from '@chakra-ui/core'
+import { Center, CircularProgress } from '@chakra-ui/react'
 
 import { loadingState } from '../recoil/loading-state'
 

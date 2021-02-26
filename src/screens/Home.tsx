@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSetRecoilState } from 'recoil'
-import { Heading, Container, Button } from '@chakra-ui/core'
+import { Heading, Container, Button } from '@chakra-ui/react'
 
 import { staticText } from '../app/static-text'
 import { drawerState } from '../recoil/drawer-state'

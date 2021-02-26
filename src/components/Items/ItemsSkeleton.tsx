@@ -1,10 +1,10 @@
 import React from 'react'
-import { Skeleton, SimpleGrid } from '@chakra-ui/core'
+import { Skeleton, SimpleGrid } from '@chakra-ui/react'
 
 import { Item, ItemVariant } from './Item'
 import { Schemas } from '../../api/schemas'
 
-type ItemsSkeleton = {
+type ItemsSkeletonProps = {
   variant: ItemVariant
 }
 
@@ -38,7 +38,7 @@ const fakeData: Schemas.SteamItem = {
   marketable: 'string',
 }
 
-export function ItemsSkeleton({ variant }: ItemsSkeleton) {
+export function ItemsSkeleton({ variant }: ItemsSkeletonProps) {
   return (
     <SimpleGrid spacing={10} minChildWidth="288px">
       {[...new Array(18)].map((_, i) => (

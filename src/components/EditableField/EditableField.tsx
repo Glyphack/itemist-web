@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Editable, EditablePreview, EditableInput } from '@chakra-ui/core'
+import { Editable, EditablePreview, EditableInput } from '@chakra-ui/react'
 
 import { EditableControls, EditableControlsProps } from './EditableControls'
 import { api } from '../../api'

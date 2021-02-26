@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { Flex, Text, Button } from '@chakra-ui/core'
+import { Flex, Text, Button } from '@chakra-ui/react'
 
 import { Schemas } from '../../api/schemas'
 import { cartState } from '../../recoil/cart-state'

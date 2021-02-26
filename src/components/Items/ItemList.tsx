@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimpleGrid } from '@chakra-ui/core'
+import { SimpleGrid } from '@chakra-ui/react'
 
 import { Item, ItemVariant } from './Item'
 import { Schemas } from '../../api/schemas'

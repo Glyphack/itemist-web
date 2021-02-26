@@ -1,6 +1,6 @@
 import React from 'react'
 import { RecoilRoot } from 'recoil'
-import { ChakraProvider, theme } from '@chakra-ui/core'
+import { ChakraProvider, theme } from '@chakra-ui/react'
 
 import { Routes } from './Routes'
 

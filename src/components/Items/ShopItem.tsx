@@ -37,7 +37,7 @@ export function ShopItem({ data }: ShopItemProps) {
         </Text> */}
       </Flex>
       <Button colorScheme="blue" w="100%" disabled={isDisabled} onClick={handleClick}>
-        خرید
+        افزودن به سبد خرید
       </Button>
     </>
   )

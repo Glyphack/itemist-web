@@ -94,7 +94,7 @@ function UserInfo({ user }: UserInfoProps) {
     <VStack mb={4} fontSize="lg" color="gray.500">
       <Avatar name={user.name} src={user.avatar} size="2xl" />
       <Text bg="gray.50">{user.name}</Text>
-      <EditableField defaultTradeUrl={user.tradeUrl || 'Steam Trade URL'} />
+      <EditableField defaultTradeUrl={user.tradeUrl || ''} />
     </VStack>
   )
 }

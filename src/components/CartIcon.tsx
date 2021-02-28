@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
-import { Box, Icon } from '@chakra-ui/core'
+import { Box, Icon } from '@chakra-ui/react'
 import { HiShoppingCart } from 'react-icons/hi'
 
 import { cartState } from '../recoil/cart-state'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, CloseButton, Flex, Text } from '@chakra-ui/core'
+import { Box, CloseButton, Flex, Text } from '@chakra-ui/react'
 
 import { Schemas } from '../../api/schemas'
 

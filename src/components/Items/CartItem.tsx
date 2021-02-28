@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSetRecoilState } from 'recoil'
-import { Flex, Text, IconButton } from '@chakra-ui/core'
+import { Flex, Text, IconButton } from '@chakra-ui/react'
 import { HiTrash } from 'react-icons/hi'
 
 import { Schemas } from '../../api/schemas'

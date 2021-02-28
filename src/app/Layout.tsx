@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
-import { Box, Container } from '@chakra-ui/core'
+import { Box, Container } from '@chakra-ui/react'
 
 import { api } from '../api'
 import { userState } from '../recoil/user-state'

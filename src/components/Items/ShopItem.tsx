@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { Flex, Text, Button } from '@chakra-ui/core'
+import { Flex, Text, Button } from '@chakra-ui/react'
 
 import { Schemas } from '../../api/schemas'
 import { cartState } from '../../recoil/cart-state'
@@ -37,7 +37,7 @@ export function ShopItem({ data }: ShopItemProps) {
         </Text> */}
       </Flex>
       <Button colorScheme="blue" w="100%" disabled={isDisabled} onClick={handleClick}>
-        خرید
+        افزودن به سبد خرید
       </Button>
     </>
   )

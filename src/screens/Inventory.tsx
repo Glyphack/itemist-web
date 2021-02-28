@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { VStack } from '@chakra-ui/core'
+import { VStack } from '@chakra-ui/react'
 
 import { Schemas } from '../api/schemas'
 import { api } from '../api'

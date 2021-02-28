@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 import {
   Button,
-  Fade,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -15,7 +14,7 @@ import {
   Input,
   InputLeftAddon,
   useToast,
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import { Schemas } from '../../api/schemas'
 import { api } from '../../api'
@@ -64,35 +63,29 @@ export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) 
   }
 
   return (
-    <Fade timeout={300} in={isOpen}>
-      {styles => (
-        <Modal finalFocusRef={cancelRef} onClose={onClose} isOpen={true} isCentered>
-          <ModalOverlay style={styles}>
-            <SlideFade timeout={150} in={isOpen} unmountOnExit={false}>
-              {styles => (
-                <ModalContent style={styles} dir="ltr">
-                  <ModalHeader fontFamily="arial">Lotus Orb</ModalHeader>
-                  <ModalCloseButton />
-                  <ModalBody>
-                    <InputGroup>
-                      <InputLeftAddon children="تومان" />
-                      <Input value={price} onChange={handlePriceChange} />
-                    </InputGroup>
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button colorScheme="red" variant="ghost" mr={3} onClick={onClose}>
-                      لغو
-                    </Button>
-                    <Button colorScheme="green" onClick={submitSellOrder}>
-                      فروش
-                    </Button>
-                  </ModalFooter>
-                </ModalContent>
-              )}
-            </SlideFade>
-          </ModalOverlay>
-        </Modal>
-      )}
-    </Fade>
+    <Modal finalFocusRef={cancelRef} onClose={onClose} isOpen={isOpen} isCentered>
+      <ModalOverlay>
+        <SlideFade in={isOpen} unmountOnExit={false}>
+          <ModalContent dir="ltr">
+            <ModalHeader fontFamily="arial">Lotus Orb</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <InputGroup>
+                <InputLeftAddon children="تومان" />
+                <Input value={price} onChange={handlePriceChange} />
+              </InputGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="red" variant="ghost" mr={3} onClick={onClose}>
+                لغو
+              </Button>
+              <Button colorScheme="green" onClick={submitSellOrder}>
+                فروش
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </SlideFade>
+      </ModalOverlay>
+    </Modal>
   )
 }

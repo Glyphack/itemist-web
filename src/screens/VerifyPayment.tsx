@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { Heading } from '@chakra-ui/core'
+import { Heading } from '@chakra-ui/react'
 
 export function VerifyPayment() {
   const location = useLocation()

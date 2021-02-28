@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { Badge, Button, Flex, VStack } from '@chakra-ui/core'
+import { Badge, Button, Flex, VStack } from '@chakra-ui/react'
 import { HiCurrencyDollar } from 'react-icons/hi'
 
 import { Schemas } from '../api/schemas'

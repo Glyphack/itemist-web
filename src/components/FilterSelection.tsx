@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, MenuButton, Button, Icon, MenuList, MenuItem } from '@chakra-ui/core'
+import { Menu, MenuButton, Button, Icon, MenuList, MenuItem } from '@chakra-ui/react'
 import { HiChevronDown } from 'react-icons/hi'
 
 import { staticText } from '../app/static-text'

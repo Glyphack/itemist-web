@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, VStack, Flex, Heading } from '@chakra-ui/core'
+import { Image, VStack, Flex, Heading } from '@chakra-ui/react'
 
 import { ShopItem } from './ShopItem'
 import { InventoryItem } from './InventoryItem'

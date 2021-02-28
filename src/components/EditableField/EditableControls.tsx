@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonGroup, IconButton, Flex } from '@chakra-ui/core'
+import { ButtonGroup, IconButton, Flex } from '@chakra-ui/react'
 import { HiCheck, HiX, HiPencilAlt } from 'react-icons/hi'
 
 export type EditableControlsProps = {

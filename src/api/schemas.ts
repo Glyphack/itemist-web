@@ -50,8 +50,14 @@ export declare namespace Schemas {
     commodity: string
     marketTradableRestriction: string
     marketMarketableRestriction: string
-    descriptions: string[]
+    descriptions: Description[]
     tags: Tag[]
+  }
+
+  type Description = {
+    type: string
+    value: string
+    _id: string
   }
 
   type Tag = {
@@ -59,6 +65,7 @@ export declare namespace Schemas {
     category: string
     color: string
     categoryName: string
+    _id: string
   }
 
   type Cart = {

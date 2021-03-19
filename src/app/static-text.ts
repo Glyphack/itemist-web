@@ -22,6 +22,17 @@ export const staticText = {
       priceDesc: 'قیمت: نزولی',
     },
   },
+  payment: {
+    success: {
+      msg: 'پرداخت با موفقیت انجام شد',
+      number: 'شماره پیگیری: '
+    },
+    error: {
+      msg: 'پرداخت با مشکل مواجه شده است، لطفا از طریق شماره زیر پیگیری نمایید',
+      phone: '09123456789',
+      orderId: 'شماره پیگیری: '
+    }
+  },
   sell: 'فروش',
   putItUpForSale: 'ثبت برای فروش',
   tradeOfferSentMessage: 'ترید آفر برای شما ارسال شد',

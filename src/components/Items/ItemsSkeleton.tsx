@@ -23,13 +23,20 @@ const fakeData: Schemas.SteamItem = {
   nameColor: 'string',
   backgroundColor: 'string',
   type: 'string',
-  descriptions: ['string'],
+  descriptions: [
+    {
+      _id: 'string',
+      type: 'string',
+      value: 'string',
+    },
+  ],
   tags: [
     {
       name: 'string',
       category: 'string',
       color: 'string',
       categoryName: 'string',
+      _id: 'string',
     },
   ],
   marketMarketableRestriction: 'string',

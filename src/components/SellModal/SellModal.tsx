@@ -50,7 +50,7 @@ export function SellModal({ isOpen, onClose, cancelRef, data }: SellModalProps) 
         assetId: data.assetId,
         contextId: data.contextId,
       })
-      const offer = response.data.sellOrder as Schemas.TradeOffer
+      const offer = response.data.sellOrder.tradeOffer as Schemas.TradeOffer
       toastRef.current = toast({
         duration: 60000,
         isClosable: true,

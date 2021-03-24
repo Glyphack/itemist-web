@@ -9,6 +9,7 @@ import { loadingState } from '../recoil/loading-state'
 import { NavigationDrawer } from '../components/NavigationDrawer'
 import { Header } from '../components/Header'
 import { Loading } from '../components/Loading'
+import { useErrorToast } from '../hooks/useErrorToast'
 
 type LayoutProps = {
   children: JSX.Element
@@ -19,6 +20,7 @@ export function Layout({ children }: LayoutProps) {
   const setLoading = useSetRecoilState(loadingState)
   const [drawer, setDrawerState] = useRecoilState(drawerState)
   const btnRef = React.useRef<HTMLButtonElement>(null!)
+  useErrorToast()
 
   useEffect(() => {
     setLoading({ isLoading: true })

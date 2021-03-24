@@ -10,6 +10,7 @@ import { NavigationDrawer } from '../components/NavigationDrawer'
 import { Header } from '../components/Header'
 import { Loading } from '../components/Loading'
 import { useErrorToast } from '../hooks/useErrorToast'
+import Cookies from 'js-cookie'
 
 type LayoutProps = {
   children: JSX.Element
@@ -23,6 +24,7 @@ export function Layout({ children }: LayoutProps) {
   useErrorToast()
 
   useEffect(() => {
+    if (!Cookies.get('access_token')) return
     setLoading({ isLoading: true })
     api
       .get('/profile')

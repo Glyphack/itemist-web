@@ -14,7 +14,6 @@ export const useErrorToast = () => {
         return response
       },
       error => {
-        console.log(error.response.status)
         handleResError(toast, error)
 
         return error
@@ -24,19 +23,21 @@ export const useErrorToast = () => {
 }
 
 const handleResError = (toast: any, error: any) => {
-  let description: string
+  let errorData = error.response.data
+  let title: string
+  let detail: string
 
-  if (error.response.detail) {
-    description = error.response.detail
-  } else if (error.response.status === 401) {
-    description = 'لطفا با حساب کاربری وارد شوید!'
+  if (errorData.type) {
+    title = errorData.title
+    detail = errorData.detail
   } else {
-    description = 'مشکلی پیش اومده'
+    title = 'خطا'
+    detail = 'مشکلی پیش اومده!'
   }
 
   toast({
-    description: description,
-    title: 'خطا',
+    title,
+    description: detail,
     status: 'error',
     duration: 900000,
     isClosable: true,

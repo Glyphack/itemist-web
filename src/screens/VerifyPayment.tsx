@@ -6,8 +6,6 @@ export function VerifyPayment() {
   const location = useLocation()
   new URLSearchParams(location.search).get('status')
 
-  console.log(location)
-
   return (
     <Heading size="2xl" color="green.500">
       SUCCESS

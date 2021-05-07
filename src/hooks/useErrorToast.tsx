@@ -36,6 +36,8 @@ const handleResError = (toast: any, error: any) => {
   }
 
   toast({
-    render: () => <ErrorToast title={title} detail={detail} />,
+    render: ({ onClose }: { onClose: any }) => (
+      <ErrorToast title={title} detail={detail} onClose={onClose} />
+    ),
   })
 }

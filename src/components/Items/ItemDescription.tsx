@@ -19,8 +19,6 @@ type ItemDescriptionProps = {
 }
 
 export function ItemDescription({ data, isOpen, onClose }: ItemDescriptionProps) {
-  console.log(data)
-
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="5xl" isCentered>
       <ModalOverlay />

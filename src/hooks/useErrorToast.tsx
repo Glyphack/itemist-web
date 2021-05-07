@@ -1,6 +1,7 @@
 import { useToast } from '@chakra-ui/toast'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { instance } from '../api'
+import { ErrorToast } from '../components/ErrorToast'
 
 /**
  * Shows a toast whenever an api response is an error
@@ -15,7 +16,6 @@ export const useErrorToast = () => {
       },
       error => {
         handleResError(toast, error)
-
         return error
       }
     )
@@ -36,10 +36,6 @@ const handleResError = (toast: any, error: any) => {
   }
 
   toast({
-    title,
-    description: detail,
-    status: 'error',
-    duration: 900000,
-    isClosable: true,
+    render: () => <ErrorToast title={title} detail={detail} />,
   })
 }

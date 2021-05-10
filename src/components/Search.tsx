@@ -11,7 +11,7 @@ export function Search() {
         pointerEvents="none"
         children={<Icon as={HiSearch} boxSize={5} color="gray.500" />}
       />
-      <Input variant="filled" placeholder={staticText.shop.search} />
+      <Input variant="filled" placeholder={staticText.shop.search} fontFamily="Arial" />
     </InputGroup>
   )
 }

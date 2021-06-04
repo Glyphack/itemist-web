@@ -23,11 +23,11 @@ export const useErrorToast = () => {
 }
 
 const handleResError = (toast: any, error: any) => {
-  let errorData = error.response.data
   let title: string
   let detail: string
 
-  if (errorData.type) {
+  if (error.response?.data?.type) {
+    let errorData = error.response.data
     title = errorData.title
     detail = errorData.detail
   } else {

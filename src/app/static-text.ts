@@ -1,6 +1,8 @@
 export const staticText = {
   layout: {
     logo: 'آیتمیست',
+    shop: 'بازار',
+    sell: 'فروش',
     drawer: {
       login: 'ورود با استیم',
       shop: 'فروشگاه',

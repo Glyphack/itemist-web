@@ -35,6 +35,7 @@ export function ShoppingCart() {
             dir="ltr"
             alignSelf="center"
             onClick={handleConfirmPayment}
+            disabled={items.length === 0}
           >
             پرداخت نهایی
           </Button>

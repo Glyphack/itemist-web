@@ -11,6 +11,7 @@ import { Header } from '../components/Header'
 import { Loading } from '../components/Loading'
 import { useErrorToast } from '../hooks/useErrorToast'
 import Cookies from 'js-cookie'
+import { ProfileModal } from '../components/ProfileModal'
 
 type LayoutProps = {
   children: JSX.Element
@@ -45,6 +46,7 @@ export function Layout({ children }: LayoutProps) {
         onClose={() => setDrawerState({ isOpen: false })}
         finalFocusRef={btnRef}
       />
+      <ProfileModal />
       <Loading />
     </>
   )

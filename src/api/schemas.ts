@@ -81,4 +81,17 @@ export declare namespace Schemas {
     amount: number
     refId: string
   }
+
+  type History = {
+    _id: string,
+    user: string,
+    authority: string,
+    status: string,
+    products: Product[],
+    amount: number,
+    orderId: string,
+    createdAt: string,
+    updatedAt: string,
+    __v: number
+  }
 }

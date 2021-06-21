@@ -6,8 +6,9 @@ import { InventoryItem } from './InventoryItem'
 import { CartItem } from './CartItem'
 import { Schemas } from '../../api/schemas'
 import { ItemDescription } from './ItemDescription'
+import { HistoryProductItem } from './HistoryProductItem'
 
-export type ItemVariant = 'shop' | 'inventory' | 'shopping-cart'
+export type ItemVariant = 'shop' | 'inventory' | 'shopping-cart' | 'history-product'
 
 type ItemProps = {
   variant: ItemVariant
@@ -28,6 +29,8 @@ export function Item({ variant, data, nameColor, iconUrl, name }: ItemProps) {
         return <InventoryItem data={data as Schemas.SteamItem} />
       case 'shopping-cart':
         return <CartItem data={data as Schemas.Product} />
+      case 'history-product':
+        return <HistoryProductItem data={data as Schemas.Product} />
     }
   }
 

@@ -16,7 +16,7 @@ instance.interceptors.request.use(
 )
 
 export declare namespace EndpointTypes {
-  type Get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout'
+  type Get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout' | '/payment/history'
   type Post = '/sell' | '/cart/add-product' | '/cart/remove-product'
   type Put = '/profile'
 }

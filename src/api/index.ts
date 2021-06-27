@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import Cookies from 'js-cookie'
 
 export const instance = axios.create({
@@ -15,8 +15,8 @@ instance.interceptors.request.use(
   }
 )
 
-declare namespace EndpointTypes {
-  type Get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout'
+export declare namespace EndpointTypes {
+  type Get = '/profile' | '/profile/inventory' | '/sell' | '/products' | '/cart' | '/cart/checkout' | '/payment/history'
   type Post = '/sell' | '/cart/add-product' | '/cart/remove-product'
   type Put = '/profile'
 }
@@ -33,7 +33,7 @@ declare namespace RequestData {
 }
 
 export const api = {
-  get: (endpoint: EndpointTypes.Get) => instance.get(endpoint),
+  get: (endpoint: EndpointTypes.Get, config?: AxiosRequestConfig) => instance.get(endpoint, config),
   post: (
     endpoint: EndpointTypes.Post,
     data:

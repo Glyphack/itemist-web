@@ -1,11 +1,12 @@
 import React, { RefObject } from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { Link as RouteLink } from 'react-router-dom'
 import { Flex, IconButton, Avatar, Link, Icon, HStack } from '@chakra-ui/react'
 import { HiMenu } from 'react-icons/hi'
 import { staticText } from '../app/static-text'
 import { userState } from '../recoil/user-state'
 import { CartIcon } from './CartIcon'
+import { profileModalState } from '../recoil/profile-modal-state'
 
 type HeaderProps = {
   drawerBtnRef: RefObject<HTMLButtonElement>
@@ -14,6 +15,7 @@ type HeaderProps = {
 
 export function Header({ drawerBtnRef, onDrawerOpen }: HeaderProps) {
   const user = useRecoilValue(userState)
+  const setProfileModal = useSetRecoilState(profileModalState)
 
   return (
     <Flex justifyContent="space-between" alignItems="center" p={3} backgroundColor="#00000022">
@@ -41,7 +43,16 @@ export function Header({ drawerBtnRef, onDrawerOpen }: HeaderProps) {
             to="/shopping-cart"
           />
         )}
-        {user && <Avatar name={user.name} src={user.avatar} size="sm" mx={4} />}
+        {user && (
+          <Avatar
+            name={user.name}
+            src={user.avatar}
+            size="sm"
+            mx={4}
+            cursor="pointer"
+            onClick={() => setProfileModal({ isOpen: true })}
+          />
+        )}
         <IconButton
           aria-label="open navigation drawer"
           ref={drawerBtnRef}
